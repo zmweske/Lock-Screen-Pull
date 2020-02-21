@@ -34,5 +34,5 @@ empty folders used to manually separate the 1920x1080 and 1080x1920 images
 - [x] Automatically set up directory
 - [x] Remove images that have been seen previously
 - [x] Create custom setup location variable
-- [ ] Automatically remake and remove temp before and after operations
+- [ ] Automatically remake and remove `temp\` before and after operations
 - [ ] Sort images by vertical vs horizontal

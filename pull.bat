@@ -25,8 +25,8 @@ REM CALL explorer.exe "%DIRECTORY%\lock screens\"
 
 for /f %%f in ('dir /b .') do @(
 	echo %%f
-	REM for /f "delims=? tokens=2" %%a in ('call ..\toolTipInfo.bat %%f ^|find "Dimensions:"')  do (
-	for /f "delims=" %%a in ('call ..\imgInfo.bat %%f')  do (
+	REM for /f "delims=? tokens=2" %%a in ('call %~dp0toolTipInfo.bat %%f ^|find "Dimensions:"')  do (
+	for /f "delims=" %%a in ('call %~dp0imgInfo.bat %%f')  do (
 		echo "%%a"
 		@if "%%a" == "1920 x 1080" @move %%f ..\horizontal\
 		@if "%%a" == "1080 x 1920" @move %%f ..\vertical\

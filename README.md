@@ -32,7 +32,7 @@ where all of the processed images are placed, ready for manual sorting
 empty folders used to separate the 1920x1080 and 1080x1920 images  
 
 
-## TODO
+## Features/TODO
 - [x] Automatically set up directory
 - [x] Remove images that have been seen previously
 - [x] Create custom setup location variable

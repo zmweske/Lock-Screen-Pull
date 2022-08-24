@@ -6,7 +6,7 @@ SET DIRECTORY="%USERPROFILE%\Pictures"
 cd "%DIRECTORY%"
 if not exist "lock screens\" 			mkdir "lock screens\"
 if not exist "lock screens\dump\" 		mkdir "lock screens\dump\"
-if not exist "lock screens\temp" 	mkdir "lock screens\temp\"
+if not exist "lock screens\temp" 		mkdir "lock screens\temp\"
 
 REM remove two following lines if the horizontal and vertical folders are not used
 if not exist "lock screens\horizontal\" 	mkdir "lock screens\horizontal\"
@@ -21,6 +21,17 @@ for /f "delims=" %%f in (..\trash.txt) do @del "%%f" 2>nul
 REM adding processed files to trash.txt
 for /r %%i in (*) do echo %%i >> ..\trash.txt
 
-move "%DIRECTORY%\lock screens\temp\*" "%DIRECTORY%\lock screens\dump\"
-cd "%DIRECTORY%\lock screens"
 REM CALL explorer.exe "%DIRECTORY%\lock screens\"
+
+for /f %%f in ('dir /b .') do @(
+	echo %%f
+	REM for /f "delims=? tokens=2" %%a in ('call ..\toolTipInfo.bat %%f ^|find "Dimensions:"')  do (
+	for /f "delims=" %%a in ('call ..\imgInfo.bat %%f')  do (
+		echo "%%a"
+		@if "%%a" == "1920 x 1080" @move %%f ..\horizontal\
+		@if "%%a" == "1080 x 1920" @move %%f ..\vertical\
+	)
+)
+move "%DIRECTORY%\lock screens\temp\*" "%DIRECTORY%\lock screens\dump\"
+cd ..
+rmdir "%DIRECTORY%\lock screens\temp\"

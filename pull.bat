@@ -4,7 +4,7 @@ REM setup location
 SET DIRECTORY="%USERPROFILE%\Pictures"
 
 cd "%DIRECTORY%"
-if not exist "lock screens\" 			mkdir "lock screens\"
+if not exist "lock screens\" 			mkdir "Lock Screens\"
 if not exist "lock screens\dump\" 		mkdir "lock screens\dump\"
 if not exist "lock screens\temp" 		mkdir "lock screens\temp\"
 

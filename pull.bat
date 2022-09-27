@@ -2,10 +2,13 @@
 @echo off
 REM setup location
 SET DIRECTORY="%USERPROFILE%\Pictures"
+SET LOCATION="Lock Screens\"
 
 cd "%DIRECTORY%"
-if not exist "lock screens\" 	mkdir "Lock Screens\"
-cd "Lock Screens"
+if not exist "%LOCATION%" 		mkdir "%LOCATION%"
+if exist "%~dp0\imgInfo.bat" 	move "%~dp0\imgInfo.bat" %LOCATION%
+
+cd "%LOCATION%"
 if not exist "dump\" 			mkdir "dump\"
 if not exist "temp" 			mkdir "temp\"
 if not exist "horizontal\" 		mkdir "horizontal\"

@@ -3,20 +3,20 @@ This script copies the Windows 10 lock screen files to a location where you can 
 
 
 ## How to use
-1. Download `pull.bat` or clone repository. 
-2. Optional: either move `pull.bat` into `C:\windows\system32` (not normally recommended and admin privileges required) or add the location of `pull.bat` to PATH environment variable
-3. Optional: Change setup location inside of `pull.bat`. It is set as the variable `DIRECTORY`
-4. Run `pull.bat` from anywhere. It will use the configured setup location.
-5. Open the `dump\` folder and delete any advertisement/spam images that Windows downloaded and sort out favorite images. 
-6. Remaining images inside `dump\`, `horizontal\`, and `vertical\` can be deleted or moved. 
+1. Download `pull.bat` and `imgInfo.bat`, or clone repository. 
+2. Optional: Change setup location inside of `pull.bat`. It is set as the variable `DIRECTORY` and the default is `"%USERPROFILE%\Pictures"`. Additionally, change the `LOCATION` variable which is by default set to `"Lock Screens\"`. This will set up everything in a "Lock Screens" folder in your user's Pictures directory. 
+3. Run `pull.bat` from anywhere. It will use the configured setup location. `imgInfo.bat` should be inside the setup `LOCATION` if you downloaded it manually. 
+4. Open the `dump\` folder and delete any advertisement/spam images that Windows downloaded and sort out favorite images. 
+5. Remaining images inside `dump\`, `horizontal\`, and `vertical\` can be deleted or moved. 
 - It is recommended to `SHIFT + DELETE` unwanted images. It deletes them permanently but will reduce disk usage. 
 - An alternative way to empty the `dump\` directory is to move unwanted images to a folder called `temp\` which will be permanently and safely emptied after running the program. 
 
 ## Recommended tips
 - You can set your desktop background to shuffle through the `horizontal\` folder, or move your favorites out and set the background to cycle through those instead. 
+- Use the Windows run box (`Win+R`) to run the script (`"%USERPROFILE%\Pictures\Lock Screens\pull.bat"`) should work if you didn't change the default location. 
 
 ## Generated Files/Folders:
-- `lock screens\`
+- `lock screens\` (or changed by updating the `LOCATION` variable)
 the main program folder containing all processed images, files, and folders  
 
 - `trash.txt`
